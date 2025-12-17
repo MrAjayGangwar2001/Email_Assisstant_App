@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { Container, Typography, Box, TextField, Button } from '@mui/material';
 import SelectTone from './SelectTone';
+import { CircularProgress} from '@mui/material'
 
 
 function Page() {
     const [emailContent, setEmailContent] = useState('');
     const [loading, setLoading] = useState(false);
+    const [tone, setTone] = useState('');
+
 
     const [generatedReply, setGeneratedReply] = useState('');
 
@@ -23,14 +26,14 @@ function Page() {
                 response.data : JSON.stringify(response.data)
             )
         } catch (error) {
-            alert("error", error)
+            alert(error.response?.data || "Something went wrong")
         } finally {
             setLoading(false)
         }
     }
     return (
         <>
-            <Container maxWidth="sm" sx={{ py:2 }}>
+            <Container maxWidth="sm" sx={{ py: 2 }}>
                 <Typography variant='h3' component="h1" gutterBottom>
                     Email Reply Generator
                 </Typography>
@@ -46,10 +49,10 @@ function Page() {
                         onChange={(e) => setEmailContent(e.target.value)}
                     />
                 </Box>
-                <SelectTone />
+                <SelectTone  tone={tone} setTone={setTone}/>
 
                 <Button
-                    sx={{ mx: 3, my:2 }}
+                    sx={{ mx: 3, my: 2 }}
                     variant="contained"
                     onClick={handleSubmit}
                     disabled={!emailContent || loading}>
@@ -63,10 +66,10 @@ function Page() {
                         multiline
                         rows={6}
                         variant='outlined'
-                        aria-readonly
+                        // aria-readonly
                         // label="Generated Email Content"
                         value={generatedReply || ''}
-                        onChange={(e) => setEmailContent(e.target.value)}
+                        InputProps={{ readOnly: true }}
                     />
                     <Button
                         className='my-3 p-2'
