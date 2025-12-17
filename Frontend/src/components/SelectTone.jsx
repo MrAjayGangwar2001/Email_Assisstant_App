@@ -5,10 +5,9 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { Button, CircularProgress, Container } from '@mui/material';
+import { Container } from '@mui/material';
 
-function SelectTone() {
-    const [tone, setTone] = useState('');
+function SelectTone({tone, setTone}) {
 
     const handleChange = (e) => {
         setTone(e.target.value);
