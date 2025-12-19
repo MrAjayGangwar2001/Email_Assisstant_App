@@ -1,22 +1,25 @@
 
 
-function getEmailContent(){
+function getEmailContent() {
     const selectors = [
-        '.h7',
-        '.a3s.aiL',
-        '.gmail_quote',
-        '[role="presentation"]'
+        '.a3s.aiL',          // main email body
+        '.gmail_quote',      // quoted replies
     ];
-     for (const Selector of selectors) {
-        const content = document.querySelector(Selector);
 
-        if (content) {
-            return content.innerHTML.trim();
-        }
+    let fullText = '';
 
-    }
-    return '';
+    selectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => {
+            const text = el.innerText?.trim();
+            if (text && !fullText.includes(text)) {
+                fullText += text + '\n\n';
+            }
+        });
+    });
+
+    return fullText.trim();
 }
+
 
 
 function findMailComposeToolbar(){
