@@ -1,4 +1,27 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+}
 
+.navbar .btn:hover {
+  transform: translateY(-1px);
+  transition: 0.2s ease;
+}
+
+
+.cursor {
+  animation: blink 1s infinite;
+  
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0
+  }
+}
+
+/* 
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -40,4 +63,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */
