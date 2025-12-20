@@ -61,8 +61,10 @@ function Page() {
 
         try {
             const res = await axios.post(
-                // 'http://3.27.114.7:8080/email/api/email',
-                '/email/api/email',
+                'https://dr41zrycf9nrg.cloudfront.net/email/api/email',
+
+                // 'https://3.27.114.7:8080/email/api/email',
+                // '/email/api/email',
                 { emailContent, tone }   // length later add hoga
             )
             typeText(String(res.data))
@@ -146,16 +148,16 @@ function Page() {
 
                 <nav className={`navbar navbar-expand-lg shadow-sm border-bottom ${darkMode ? 'navbar-dark bg-dark' : 'navbar-light bg-white'
                     }`}>
-                    <div className="container-fluid px-3">
+                    <div className="container-fluid px-4">
 
                         {/* LOGO + TITLE */}
-                        <a className="navbar-brand d-flex align-items-center gap-2" href="#">
+                        <a className="navbar-brand d-flex align-items-center gap-2 m-0 p-0" href="#">
                             <img
                                 src="/image.png"
                                 alt="App Logo"
-                                style={{ height: 40, width: 40, borderRadius: 8 }}
+                                style={{ height: 45, width: 45, borderRadius: 8 }}
                             />
-                            <span className="fw-semibold">AI Email Reply Assistant</span>
+                            <span className="fw-semibold">Email Reply Assistant</span>
                         </a>
 
                         {/* HAMBURGER BUTTON (Mobile) */}
@@ -170,14 +172,14 @@ function Page() {
 
                         {/* COLLAPSIBLE CONTENT */}
                         <div className="collapse navbar-collapse justify-content-end" id="navbarActions">
-                            <div className="d-flex flex-column flex-lg-row gap-2 mt-3 mt-lg-0 align-items-start">
+                            <div className="d-flex flex-column flex-lg-row gap-2 mt-2 mt-lg-0 align-items-start">
 
                                 <button
                                     className="btn btn-outline-none text-center btn-sm w-auto"
                                     onClick={() => setDarkMode(!darkMode)}
                                     style={{
                                         width: 38,
-                                        height: 38,
+                                        height: 28,
                                         border: 'none'
                                     }}
                                     // title="dark/light"
@@ -188,14 +190,14 @@ function Page() {
                                 </button>
 
                                 <button
-                                    className="btn btn-outline-secondary btn-sm w-auto"
+                                    className="btn btn-outline-secondary rounded  btn-sm w-auto"
                                     onClick={() => setOpenFeedback(true)}
                                 >
                                     Feedback
                                 </button>
 
                                 <button
-                                    className="btn btn-outline-secondary btn-sm w-auto"
+                                    className="btn btn-outline-secondary rounded btn-sm w-auto"
                                     onClick={() => setOpenHistory(true)}
                                 >
                                     History
@@ -236,7 +238,7 @@ function Page() {
                                     onChange={(e) => setEmailContent(e.target.value)}
 
                                 />
-                                <div className="p-1 d-flex justify-content-between">
+                                <div className="d-flex justify-content-between">
                                     <small className="text-muted">
                                         Your email content will not be stored
                                     </small>
@@ -304,7 +306,7 @@ function Page() {
                                     variant={copied ? 'contained' : 'outlined'}
                                     color={copied ? 'success' : 'primary'}
                                     fullWidth
-                                    sx={{ my: 1 }}
+                                    sx={{ my: 2, py:1 }}
                                     disabled={!generatedReply}
                                     onClick={handleCopy}
                                 >
