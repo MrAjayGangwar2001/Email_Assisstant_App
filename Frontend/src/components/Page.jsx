@@ -238,14 +238,16 @@ function Page() {
                                     onChange={(e) => setEmailContent(e.target.value)}
 
                                 />
-                                <div className="d-flex justify-content-between">
-                                    <small className="text-muted">
-                                        Your email content will not be stored
-                                    </small>
-                                    <small className="text-muted">
-                                        {emailContent.length} characters
-                                    </small>
-                                </div>
+                                <Typography variant="body2" color="text.secondary" mt={0.5}>
+                                    <div className="d-flex justify-content-between">
+                                        <small className="text-center">
+                                            Your email content will not be stored
+                                        </small>
+                                        <small className="text-center">
+                                            {emailContent.length} characters
+                                        </small>
+                                    </div>
+                                </Typography>
 
 
                                 <SelectTone tone={tone} setTone={setTone} />
@@ -306,7 +308,7 @@ function Page() {
                                     variant={copied ? 'contained' : 'outlined'}
                                     color={copied ? 'success' : 'primary'}
                                     fullWidth
-                                    sx={{ my: 2, py:1 }}
+                                    sx={{ my: 2, py: 1 }}
                                     disabled={!generatedReply}
                                     onClick={handleCopy}
                                 >
@@ -407,7 +409,7 @@ function Page() {
                 onClose={() => setOpenFeedback(false)}
             />
 
-        </ThemeProvider>
+        </ThemeProvider >
     )
 }
 
