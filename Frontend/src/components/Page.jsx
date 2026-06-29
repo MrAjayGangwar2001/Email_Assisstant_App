@@ -61,11 +61,18 @@ function Page() {
 
         try {
             const res = await axios.post(
-                'https://dr41zrycf9nrg.cloudfront.net/email/api/email',
+                // 'https://dr41zrycf9nrg.cloudfront.net/email/api/email',
+                'https://email-assisstant-app.onrender.com/email/api/email',
 
                 // 'https://3.27.114.7:8080/email/api/email',
                 // '/email/api/email',
-                { emailContent, tone }   // length later add hoga
+                { emailContent, tone },
+                {
+                    headers: {
+                        'X-EXT-KEY': 'b00faiih'
+                    }
+                }
+
             )
             typeText(String(res.data))
 
